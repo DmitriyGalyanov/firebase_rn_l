@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@react-native-firebase/app": "^8.4.7",
+    "@react-native-firebase/iid": "^7.4.10",
+    "@react-native-firebase/messaging": "^7.9.2",
     "react": "16.13.1",
     "react-native": "0.63.3"
   },
