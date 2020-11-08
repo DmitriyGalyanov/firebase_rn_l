@@ -9,19 +9,19 @@
 import React, {useEffect} from 'react';
 import {
 	SafeAreaView,
-	Text,
 	Alert,
 } from 'react-native';
 
 import remoteConfig from '@react-native-firebase/remote-config';
 import messaging from '@react-native-firebase/messaging';
 
+import GameScreen from 'screens/GameScreen';
+
 
 const App: () => React$Node = () => {
 
 	useEffect(() => {
 		remoteConfig()
-		// await remoteConfig()
 			.setDefaults({
 				test_condition3: 'not_fetched',
 			})
@@ -51,11 +51,9 @@ const App: () => React$Node = () => {
 	}, []);
 
 	return (
-		<>
-			<SafeAreaView>
-				<Text>Test</Text>
-			</SafeAreaView>
-		</>
+		<SafeAreaView>
+			<GameScreen />
+		</SafeAreaView>
 	);
 };
 
