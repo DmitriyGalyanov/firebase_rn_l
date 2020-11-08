@@ -13,10 +13,34 @@ import {
 	Alert,
 } from 'react-native';
 
+import remoteConfig from '@react-native-firebase/remote-config';
 import messaging from '@react-native-firebase/messaging';
 
 
 const App: () => React$Node = () => {
+
+	useEffect(() => {
+		remoteConfig()
+		// await remoteConfig()
+			.setDefaults({
+				test_condition3: 'not_fetched',
+			})
+			.then(() => {
+				console.log('default remote config values set')
+			})
+			.then(() => remoteConfig().fetchAndActivate())
+			// .then(fetched => {
+			// 	if (fetched) {
+			// 		console.log('configs retieved and activated');
+			// 	} else {
+			// 		console.log('no configs were fetched')
+			// 	}
+			// })
+			// .then(() => console.log(remoteConfig().getAll(), 'effect'))
+
+	}, []);
+
+	// console.log(remoteConfig().getAll(), 'render')
 	
 	useEffect(() => {
 		const unsubscribe = messaging().onMessage(async remoteMessage => {
