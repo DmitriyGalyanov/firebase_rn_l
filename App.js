@@ -12,6 +12,9 @@ import {
 	Alert,
 } from 'react-native';
 
+import store from 'app_redux/store';
+import {Provider} from 'react-redux';
+
 import remoteConfig from '@react-native-firebase/remote-config';
 import messaging from '@react-native-firebase/messaging';
 
@@ -51,9 +54,11 @@ const App: () => React$Node = () => {
 	}, []);
 
 	return (
-		<SafeAreaView>
-			<GameScreen />
-		</SafeAreaView>
+		<Provider store={store}>
+			<SafeAreaView>
+				<GameScreen />
+			</SafeAreaView>
+		</Provider>
 	);
 };
 
