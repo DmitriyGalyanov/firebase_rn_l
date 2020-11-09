@@ -12,28 +12,29 @@ import styles from './styles';
 
 BetBlock.propTypes = {
 	title: PropTypes.string.isRequired,
-	onClick: PropTypes.func.isRequired,
+	onPress: PropTypes.func.isRequired,
 	isDisabled: PropTypes.bool,
 };
-export default function BetBlock({title, onClick, isDisabled}) {
+export default function BetBlock({title, onPress, isDisabled}) {
 	const background = isDisabled
 		? require('./background_disabled.png')
 		: require('./background.png');
-	
+
 	return (
+		<TouchableOpacity
+			style={styles.wrap}
+			activeOpacity={0.55}
+			onPress={onPress}
+			disabled={isDisabled}
+		>
 			<ImageBackground
 				source={background}
-				style={styles.wrap}
+				style={styles.button}
 			>
-				<TouchableOpacity
-					style={styles.button}
-					onPress={onClick}
-					disabled={isDisabled}
-				>
-					<Text style={styles.text}>
-						{title}
-					</Text>
-				</TouchableOpacity>
+				<Text style={styles.text}>
+					{title}
+				</Text>
 			</ImageBackground>
-	)
+		</TouchableOpacity>
+)
 }

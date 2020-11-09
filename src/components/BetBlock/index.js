@@ -43,13 +43,13 @@ export default function BetBlock() {
 		<View style={styles.wrap}>
 			<BetButton
 				title='—'
-				onClick={() => handleDecrement()}
+				onPress={() => handleDecrement()}
 				isDisabled={decrementDisabled}
 			/>
 			<BetCount value={betValue}/>
 			<BetButton
 				title='+'
-				onClick={() => handleIncrement()}
+				onPress={() => handleIncrement()}
 				isDisabled={incrementDisabled}
 			/>
 		</View>

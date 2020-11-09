@@ -15,19 +15,20 @@ import styles from './styles';
 export default function SettingsButton() {
 
 	return (
-		<ImageBackground
-			source={background}
+		<TouchableOpacity
 			style={styles.wrap}
+			activeOpacity={0.55}
+			onPress={() => null}
 		>
-			<TouchableOpacity
+			<ImageBackground
+				source={background}
 				style={styles.button}
-				onPress={() => null}
 			>
 				<Image
 					source={icon}
 					style={styles.icon}
 				/>
-			</TouchableOpacity>
-		</ImageBackground>
+			</ImageBackground>
+		</TouchableOpacity>
 	)
 }

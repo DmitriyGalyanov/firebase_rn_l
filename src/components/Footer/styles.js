@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
 	wrap: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		alignItems: 'center',
 	},
 });
 

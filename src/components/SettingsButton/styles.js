@@ -11,12 +11,13 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
+
 	icon: {
 		height: 30,
 		width: 30,
 		alignSelf: 'center',
 		marginBottom: 2,
-	}
+	},
 });
 
 export default styles;

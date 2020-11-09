@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
 		resizeMode: 'cover',
 		height: screenHeight,
 		width: screenWidth,
+		justifyContent: 'space-between',
 	}
 });
 

@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-	StyleSheet,
-	View,
+	ImageBackground,
 	Text,
 } from 'react-native';
 
+import background from './background.png';
+
+import styles from './styles';
 
 BetCount.propTypes = {
 	value: PropTypes.number.isRequired,
@@ -14,30 +16,13 @@ BetCount.propTypes = {
 export default function BetCount({value}) {
 
 	return (
-		<View style={styles.wrap}>
+		<ImageBackground
+			source={background}
+			style={styles.wrap}
+		>
 			<Text style={styles.count}>
 				{value}
 			</Text>
-		</View>
+		</ImageBackground>
 	)
 }
-
-
-const styles = StyleSheet.create({
-	wrap: {
-		width: 80,
-		height: 65,
-		borderRadius: 14,
-		backgroundColor: '#95172f',
-		alignItems: 'center',
-		borderWidth: 4,
-		borderColor: '#dbbe0b',
-	},
-
-	count: {
-		lineHeight: 57,
-		textAlign: 'center',
-		color: '#fff',
-		fontSize: 20,
-	},
-});

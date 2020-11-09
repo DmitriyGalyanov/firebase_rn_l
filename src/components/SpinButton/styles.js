@@ -2,9 +2,11 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
 	wrap: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center',
+
+	},
+	img: {
+		height: 180,
+		width: 180,
 	},
 });
 

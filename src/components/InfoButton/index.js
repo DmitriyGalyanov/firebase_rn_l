@@ -14,18 +14,19 @@ import styles from './styles';
 export default function InfoButton() {
 
 	return (
-		<ImageBackground
-			source={background}
-			style={styles.wrap}
+		<TouchableOpacity
+			style={styles.button}
+			activeOpacity={0.55}
+			onPress={() => null}
 		>
-			<TouchableOpacity
-				style={styles.button}
-				onPress={() => null}
+			<ImageBackground
+				source={background}
+				style={styles.wrap}
 			>
 				<Text style={styles.text}>
 					i
 				</Text>
-			</TouchableOpacity>
-		</ImageBackground>
+			</ImageBackground>
+		</TouchableOpacity>
 	)
 }

@@ -1,18 +1,21 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-	wrap: {},
+	wrap: {
+		width: 45,
+		height: 45,
+	},
 
 	button: {
-		width: 30,
-		height: 30,
-		borderRadius: 10,
+		width: 45,
+		height: 45,
 		alignItems: 'center',
 	},
+	
 	text: {
-		lineHeight: 25,
+		lineHeight: 35,
 		color: '#fff',
-		fontSize: 20,
+		fontSize: 24,
 	},
 });
 

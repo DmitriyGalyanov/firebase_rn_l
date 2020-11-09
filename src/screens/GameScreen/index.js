@@ -7,7 +7,7 @@ import {
 import Header from 'components/Header';
 import MachineWindow from 'components/MachineWindow';
 import WinCount from 'components/WinCount';
-import BetBlock from 'components/BetBlock';
+import Footer from 'components/Footer';
 
 import backgroundImg from './background.jpg';
 
@@ -23,7 +23,7 @@ export default function GameScreen() {
 			<Header />
 			<MachineWindow />
 			<WinCount />
-			<BetBlock />
+			<Footer />
 		</ImageBackground>
 	)
 }
