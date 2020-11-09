@@ -1,10 +1,7 @@
 import React from 'react';
 
 import {
-	StyleSheet,
 	View,
-	Text,
-	TouchableOpacity,
 } from 'react-native';
 
 import {useSelector, useDispatch} from 'react-redux';
@@ -14,7 +11,11 @@ import {
 	decrementBet,
 } from 'state_slices/betSlice';
 
+
+import BetButton from 'components/BetButton';
 import BetCount from 'components/BetCount';
+
+import styles from './styles';
 
 
 export default function BetBlock() {
@@ -37,60 +38,20 @@ export default function BetBlock() {
 		if (incrementDisabled) return null;
 		dispatch(incrementBet());
 	};
-
-	const decrementButtonStyles = decrementDisabled
-		? [styles.button, styles.button_disabled]
-		: styles.button;
-
-	const incrementButtonStyles = incrementDisabled
-		? [styles.button, styles.button_disabled]
-		: styles.button;
 	
 	return (
 		<View style={styles.wrap}>
-			<TouchableOpacity
-				style={decrementButtonStyles}
-				onPress={() => handleDecrement()}
-				disabled={decrementDisabled}
-			>
-				<Text style={styles.buttonText}>
-					—
-				</Text>
-			</TouchableOpacity>
+			<BetButton
+				title='—'
+				onClick={() => handleDecrement()}
+				isDisabled={decrementDisabled}
+			/>
 			<BetCount value={betValue}/>
-			<TouchableOpacity
-				style={incrementButtonStyles}
-				onPress={() => handleIncrement()}
-				disabled={incrementDisabled}
-			>
-				<Text style={styles.buttonText}>
-					+
-				</Text>
-			</TouchableOpacity>
+			<BetButton
+				title='+'
+				onClick={() => handleIncrement()}
+				isDisabled={incrementDisabled}
+			/>
 		</View>
 	)
 }
-
-
-const styles = StyleSheet.create({
-	wrap: {
-		flexDirection: 'row',
-		alignItems: 'center',
-	},
-
-	button: {
-		width: 30,
-		height: 30,
-		borderRadius: 10,
-		backgroundColor: '#2c51aa',
-		alignItems: 'center',
-	},
-	button_disabled: {
-		backgroundColor: '#959595'
-	},
-	buttonText: {
-		lineHeight: 30,
-		color: '#fff',
-		fontSize: 20,
-	},
-});
