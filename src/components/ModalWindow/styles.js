@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
 		height: screenHeight,
 		width: screenWidth,
 		position: 'absolute',
-		backgroundColor: 'transparent',
+		backgroundColor: 'rgba(0, 0, 0, 0.9)',
 		// zIndex: 10
 	},
 });

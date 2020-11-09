@@ -37,19 +37,18 @@ export default function GameScreen() {
 				source={backgroundImg}
 				style={styles.wrap}
 			>
-				<ModalWindow style={styles.modalWrap}
-					zIndex={isInfoModalOpen ? 20 : 0}
-				/>
-				<ModalWindow style={styles.modalWrap}
-					zIndex={isSettingsModalOpen ? 20 : 0}
-				/>
+				{isInfoModalOpen && (
+					<ModalWindow style={styles.modalWrap} />
+				)}
+				{isSettingsModalOpen && (
+					<ModalWindow style={styles.modalWrap} />
+				)}
+				
 				<View style={styles.mainScreenWrap}>
-
 					<Header />
 					<MachineWindow />
 					<WinCount />
 					<Footer />
-
 				</View>
 			</ImageBackground>
 		</>

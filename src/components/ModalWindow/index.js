@@ -1,12 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import {
 	View,
 } from 'react-native';
 
 import RoundButton from 'components/RoundButton';
-import InfoBlock from 'components/InfoBlock';
+import InfoWindow from 'components/InfoWindow';
+import SettingsWindow from 'components/SettingsWindow';
 
 import {useDispatch, useSelector} from 'react-redux';
 import {
@@ -17,10 +18,10 @@ import {
 
 import styles from './styles';
 
-ModalWindow.propTypes = {
-	zIndex: PropTypes.number.isRequired,
-};
-export default function ModalWindow({zIndex}) {
+// ModalWindow.propTypes = {
+// };
+
+export default function ModalWindow() {
 	const dispatch = useDispatch();
 
 	const modalsData = useSelector(selectModalsData);
@@ -29,26 +30,29 @@ export default function ModalWindow({zIndex}) {
 
 	const openModalName = openModal[0]?.name;
 
-	console.log(openModalName, 'open modal name')
-
 	const closeModal = () => { //mb will come from props// or even use Redux/Context
-		console.log('close modal button clicked');
-		switch (openModal[0].name) {
+		switch (openModalName) {
 			case 'infoModal': dispatch(closeInfoModal()); break;
 			case 'settingsModal': dispatch(closeSettingsModal()); break;
 			default: return;
 		}
 	};
 
+
 	return (
 		<View style={styles.wrap}
-			zIndex={zIndex}
+			zIndex={20}
 		>
 			<RoundButton
 				title='X'
 				onPress={closeModal}
 			/>
-			<InfoBlock />
+			{openModalName === 'infoModal' && (
+				<InfoWindow />
+			)}
+			{openModalName === 'settingsModal' && (
+				<SettingsWindow />
+			)}
 		</View>
 	)
 }

@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
 		resizeMode: 'cover',
 		height: screenHeight,
 		width: screenWidth,
+		position: 'relative',
 		justifyContent: 'space-between',
 	},
 
