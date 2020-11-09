@@ -19,10 +19,6 @@ export default function BetBlock({title, onClick, isDisabled}) {
 	const background = isDisabled
 		? require('./background_disabled.png')
 		: require('./background.png');
-
-	const buttonStyles = isDisabled
-		? [styles.button, styles._disabled]
-		: styles.button;
 	
 	return (
 			<ImageBackground
@@ -30,7 +26,7 @@ export default function BetBlock({title, onClick, isDisabled}) {
 				style={styles.wrap}
 			>
 				<TouchableOpacity
-					style={buttonStyles}
+					style={styles.button}
 					onPress={onClick}
 					disabled={isDisabled}
 				>
