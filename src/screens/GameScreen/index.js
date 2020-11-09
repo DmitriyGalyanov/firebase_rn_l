@@ -8,7 +8,7 @@ import {
 import ModalWindow from 'components/ModalWindow';
 
 import Header from 'components/Header';
-import MachineWindow from 'components/MachineWindow';
+import SlotMachine from 'components/SlotMachine';
 import WinCount from 'components/WinCount';
 import Footer from 'components/Footer';
 
@@ -46,7 +46,7 @@ export default function GameScreen() {
 				
 				<View style={styles.mainScreenWrap}>
 					<Header />
-					<MachineWindow />
+					<SlotMachine />
 					<WinCount />
 					<Footer />
 				</View>

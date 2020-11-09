@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 
 export const modalsSlice = createSlice({
 	name: 'modalsData',
-	initialState: [//array is for simplicity
+	initialState: [
 		{
 			name: 'infoModal',
 			isOpen: false,

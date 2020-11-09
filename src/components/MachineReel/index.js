@@ -1,52 +1,49 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
-	StyleSheet,
 	ScrollView,
 	View,
 	Text,
 } from 'react-native';
 
-const testPicsArray = [
-	'cherry',
-	'banana',
-	'tomato',
-	'watermelon',
-	'777',
-	'strawberry',
-];
+import ReelItem from 'components/ReelItem';
+
+import styles from './styles';
 
 
-export default function MachineReel() {
+MachineReel.propTypes = {
+	data: PropTypes.shape({
+		items: PropTypes.arrayOf(PropTypes.shape({
+			itemName: PropTypes.string
+		})),
+		reelNumber: PropTypes.number.isRequired,
+	}).isRequired,
+};
+export default function MachineReel({data}) {
+	const {items} = data;
 
 	return (
 		<ScrollView
 			style={styles.wrap}
+			contentContainerStyle={styles.wrapContainer}
 			showsVerticalScrollIndicator={false}
 			// scrollEnabled={false}
 		>
-			{testPicsArray.map((item, index) => {
+			{items.map(item => {
+				const {itemName} = item;
 				return (
-					<View key={index}
-						style={styles.item}
+					<View key={itemName}
+						style={styles.itemWrap}
 					>
-						<Text>{item}</Text>
+						<ReelItem
+							itemName={itemName}
+							height={95}
+							width={100}
+						/>
 					</View>
 				)
 			})}
 		</ScrollView>
 	)
 }
-
-const styles = StyleSheet.create({
-	wrap: {
-		height: 150,
-		// overflow: 'hidden',
-	},
-
-	item: {
-		width: 50,
-		height: 50,
-
-	}
-})

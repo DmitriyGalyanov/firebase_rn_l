@@ -9,12 +9,13 @@ const styles = StyleSheet.create({
 		resizeMode: 'cover',
 		height: screenHeight,
 		width: screenWidth,
-		position: 'relative',
-		justifyContent: 'space-between',
 	},
 
 	mainScreenWrap: {
-		zIndex: 10
+		zIndex: 10,
+		height: screenHeight - 16,
+		width: screenWidth - 16,
+		justifyContent: 'space-between',
 	}
 });
 
