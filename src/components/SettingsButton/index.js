@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
 	ImageBackground,
@@ -12,13 +13,16 @@ import icon from './icon.png';
 import styles from './styles';
 
 
-export default function SettingsButton() {
+SettingsButton.propTypes = {
+	onPress: PropTypes.func.isRequired,
+};
+export default function SettingsButton({onPress}) {
 
 	return (
 		<TouchableOpacity
 			style={styles.wrap}
 			activeOpacity={0.55}
-			onPress={() => null}
+			onPress={onPress}
 		>
 			<ImageBackground
 				source={background}

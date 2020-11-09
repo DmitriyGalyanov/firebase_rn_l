@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
 	ImageBackground,
@@ -11,20 +12,24 @@ import background from './background.png';
 import styles from './styles';
 
 
-export default function InfoButton() {
+RoundButton.propTypes = {
+	title: PropTypes.string.isRequired,
+	onPress: PropTypes.func.isRequired,
+};
+export default function RoundButton({title, onPress}) {
 
 	return (
 		<TouchableOpacity
 			style={styles.button}
 			activeOpacity={0.55}
-			onPress={() => null}
+			onPress={onPress}
 		>
 			<ImageBackground
 				source={background}
 				style={styles.wrap}
 			>
 				<Text style={styles.text}>
-					i
+					{title}
 				</Text>
 			</ImageBackground>
 		</TouchableOpacity>

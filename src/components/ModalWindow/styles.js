@@ -3,18 +3,14 @@ import {StyleSheet, Dimensions} from 'react-native';
 let {height: screenHeight, width: screenWidth} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-
 	wrap: {
 		padding: 8,
-		resizeMode: 'cover',
 		height: screenHeight,
 		width: screenWidth,
-		justifyContent: 'space-between',
+		position: 'absolute',
+		backgroundColor: 'transparent',
+		// zIndex: 10
 	},
-
-	mainScreenWrap: {
-		zIndex: 10
-	}
 });
 
 export default styles;
