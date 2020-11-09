@@ -1,22 +1,28 @@
 import React from 'react';
 
 import {
-	View,
-	Text,
+	ImageBackground,
 } from 'react-native';
 
+import InfoButton from 'components/InfoButton';
+import SettingsButton from 'components/SettingsButton';
 import MachineWindow from 'components/MachineWindow';
 import BetBlock from 'components/BetBlock';
+
+import backgroundImg from './background.jpg';
 
 import styles from './styles';
 
 
 export default function GameScreen() {
 	return (
-		<View style={styles.wrap}>
-			<Text>Game Screen</Text>
+		<ImageBackground source={backgroundImg}
+			style={styles.wrap}
+		>
+			<InfoButton />
+			<SettingsButton />
 			<MachineWindow />
 			<BetBlock />
-		</View>
+		</ImageBackground>
 	)
 }
