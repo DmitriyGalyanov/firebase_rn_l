@@ -3,8 +3,8 @@ import {StyleSheet, Dimensions} from 'react-native';
 const {width: screenWidth} = Dimensions.get('window');
 
 const wrapWidth = screenWidth - 60 * 2 - 20 * 2; //40 = buttons width, 10 = margin;
-const imgAspectRatio = 3.582010582010582;
-const wrapHeight = wrapWidth / imgAspectRatio;
+const bgImgAspectRatio = 3.582010582010582;
+const wrapHeight = wrapWidth / bgImgAspectRatio;
 
 const styles = StyleSheet.create({
 	wrap: {
