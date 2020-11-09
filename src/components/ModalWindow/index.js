@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 import {
 	View,
@@ -18,9 +17,6 @@ import {
 
 import styles from './styles';
 
-// ModalWindow.propTypes = {
-// };
-
 export default function ModalWindow() {
 	const dispatch = useDispatch();
 
@@ -30,7 +26,7 @@ export default function ModalWindow() {
 
 	const openModalName = openModal[0]?.name;
 
-	const closeModal = () => { //mb will come from props// or even use Redux/Context
+	const closeModal = () => {
 		switch (openModalName) {
 			case 'infoModal': dispatch(closeInfoModal()); break;
 			case 'settingsModal': dispatch(closeSettingsModal()); break;
@@ -38,20 +34,29 @@ export default function ModalWindow() {
 		}
 	};
 
+	const CloseModalButton = (
+		<RoundButton
+			title='X'
+			onPress={closeModal}
+		/>
+	);
 
 	return (
 		<View style={styles.wrap}
 			zIndex={20}
 		>
-			<RoundButton
-				title='X'
-				onPress={closeModal}
-			/>
+			{openModalName === 'infoModal' && (
+				<View style={styles.closeModalButtonWrap}>
+					{CloseModalButton}
+				</View>
+			)}
 			{openModalName === 'infoModal' && (
 				<InfoWindow />
 			)}
 			{openModalName === 'settingsModal' && (
-				<SettingsWindow />
+				<SettingsWindow>
+					{CloseModalButton}
+				</SettingsWindow>
 			)}
 		</View>
 	)

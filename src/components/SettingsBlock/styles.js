@@ -14,7 +14,12 @@ const styles = StyleSheet.create({
 		backgroundColor: 'rgba(31, 23, 0, 0.9)',
 	},
 
-	rowWrap: {
+	closeModalButtonWrap: {
+		alignSelf: 'flex-end',
+		marginBottom: 38,
+	},
+
+	itemWrap: {
 		marginBottom: 10,
 	}
 });

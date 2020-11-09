@@ -1,18 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
+	ScrollView,
 	View,
-	Text,
 } from 'react-native';
+
+import SettingsBlock from 'components/SettingsBlock';
 
 import styles from './styles';
 
 
-export default function SettingsWindow() {
+SettingsWindow.propTypes = {
+	children: PropTypes.element.isRequired,
+};
+export default function SettingsWindow({children}) {
 
 	return (
-		<View style={styles.wrap}>
-			<Text>settings window. for testing purposes</Text>
-		</View>
+		<ScrollView contentContainerStyle={styles.wrap}>
+			<View style={styles.blockWrap}>
+				<SettingsBlock>
+					{children}
+				</SettingsBlock>
+			</View>
+		</ScrollView>
 	)
 }

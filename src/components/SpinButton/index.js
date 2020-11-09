@@ -11,7 +11,7 @@ import img from './background.png';
 import styles from './styles';
 
 SpinButton.propTypes = {
-	onPress: PropTypes.func.isRequired,
+	// onPress: PropTypes.func.isRequired,
 };
 export default function SpinButton({onPress}) {
 

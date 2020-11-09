@@ -9,7 +9,11 @@ const styles = StyleSheet.create({
 		width: screenWidth,
 		position: 'absolute',
 		backgroundColor: 'rgba(0, 0, 0, 0.9)',
-		// zIndex: 10
+	},
+
+	closeModalButtonWrap: {
+		alignSelf: 'flex-end',
+		marginVertical: 12,
 	},
 });
 

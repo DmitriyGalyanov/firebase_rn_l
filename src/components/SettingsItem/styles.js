@@ -9,22 +9,12 @@ const styles = StyleSheet.create({
 		height: 80,
 		alignItems: 'center',
 		justifyContent: 'space-between'
-		//shadow takes too much time for now
 	},
 
-	combinationWrap: {
-		flexDirection: 'row',
-	},
-
-	itemWrap: {
-		marginRight: 12,
-	},
-
-	scoreText: {
-		fontSize: 44,
-		fontWeight: 'bold',
-		color: '#ffc22f',
-	},
+	text: {
+		fontSize: 32,
+		color: '#fff',
+	}
 });
 
 export default styles;
