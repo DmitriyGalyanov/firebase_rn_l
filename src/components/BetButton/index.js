@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-	Text,
-	TouchableOpacity,
 	ImageBackground,
+	TouchableOpacity,
+	Text,
 } from 'react-native';
 
 import styles from './styles';

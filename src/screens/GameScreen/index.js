@@ -3,16 +3,17 @@ import React from 'react';
 import {
 	View,
 	Text,
-	StyleSheet,
 } from 'react-native';
 
 import MachineWindow from 'components/MachineWindow';
 import BetBlock from 'components/BetBlock';
 
+import styles from './styles';
+
 
 export default function GameScreen() {
 	return (
-		<View>
+		<View style={styles.wrap}>
 			<Text>Game Screen</Text>
 			<MachineWindow />
 			<BetBlock />
