@@ -4,8 +4,7 @@ import {
 	ImageBackground,
 } from 'react-native';
 
-import InfoButton from 'components/InfoButton';
-import SettingsButton from 'components/SettingsButton';
+import Header from 'components/Header';
 import MachineWindow from 'components/MachineWindow';
 import BetBlock from 'components/BetBlock';
 
@@ -16,11 +15,11 @@ import styles from './styles';
 
 export default function GameScreen() {
 	return (
-		<ImageBackground source={backgroundImg}
+		<ImageBackground
+			source={backgroundImg}
 			style={styles.wrap}
 		>
-			<InfoButton />
-			<SettingsButton />
+			<Header />
 			<MachineWindow />
 			<BetBlock />
 		</ImageBackground>

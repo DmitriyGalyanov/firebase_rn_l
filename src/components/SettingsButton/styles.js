@@ -2,8 +2,8 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
 	wrap: {
-		width: 40,
-		height: 40,
+		width: 60,
+		height: 60,
 	},
 
 	button: {
@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	icon: {
-		height: 20,
-		width: 20,
+		height: 30,
+		width: 30,
 		alignSelf: 'center',
 		marginBottom: 2,
 	}

@@ -2,17 +2,17 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
 	wrap: {
-		width: 40,
-		height: 40,
+		width: 60,
+		height: 60,
 	},
 
 	button: {
 		alignItems: 'center',
 	},
 	text: {
-		lineHeight: 32,
+		lineHeight: 48,
 		color: '#fff',
-		fontSize: 20,
+		fontSize: 30,
 	},
 });
 
