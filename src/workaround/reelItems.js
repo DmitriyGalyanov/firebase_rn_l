@@ -32,7 +32,7 @@ function getBigList() {
 	// 	items = items.concat(initItems);
 	// }
 	
-	for (let i = 0; i < 20; i++) { //listLength === 120
+	for (let i = 0; i < 15; i++) { //listLength === 90
 		items = items.concat(initItems);
 	}
 

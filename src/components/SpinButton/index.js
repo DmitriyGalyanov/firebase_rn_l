@@ -21,9 +21,9 @@ export default function SpinButton() {
 	const {isSpinning} = useSelector(selectSlotMachineData);
 
 	// const listLength = 180; //LaDnO
-	const listLength = 120; //LaDnO
+	const listLength = 90; //LaDnO
 
-	const getRandomInt = (min = 30, max = list.length - 4) => {
+	const getRandomInt = (min = 10, max = list.length - 2) => {
 		return Math.floor(Math.random() * (max - min)) + min;
 	};
 
@@ -32,9 +32,9 @@ export default function SpinButton() {
 		if (isSpinning) return;
 
 		const indices = {
-			'1': getRandomInt(30, listLength - 4),
-			'2': getRandomInt(30, listLength - 4),
-			'3': getRandomInt(30, listLength - 4),
+			'1': getRandomInt(10, listLength - 2),
+			'2': getRandomInt(10, listLength - 2),
+			'3': getRandomInt(10, listLength - 2),
 		}; //kek ok
 
 		dispatch(startSpinning({indices}));
