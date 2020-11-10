@@ -31,10 +31,6 @@ function getBigList() {
 	for (let i = 0; i < 50; i++) { //listLength === 300
 		items = items.concat(initItems);
 	}
-	
-	// for (let i = 0; i < 15; i++) { //listLength === 90
-	// 	items = items.concat(initItems);
-	// }
 
 	return items;
 };
