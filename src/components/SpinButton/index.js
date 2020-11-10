@@ -20,11 +20,13 @@ export default function SpinButton() {
 
 	const {isSpinning} = useSelector(selectSlotMachineData);
 
+	// const listLength = 180; //LaDnO
+	const listLength = 120; //LaDnO
+
 	const getRandomInt = (min = 30, max = list.length - 4) => {
 		return Math.floor(Math.random() * (max - min)) + min;
 	};
 
-	const listLength = 180; //LaDnO
 
 	const handlePress = () => {
 		if (isSpinning) return;

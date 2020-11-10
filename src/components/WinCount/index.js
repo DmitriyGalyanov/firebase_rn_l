@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
 	ImageBackground,
@@ -72,12 +72,20 @@ export default function WinCount() {
 
 	const prizeModifier = getPrizeModifier();
 
-	const prize = betValue * prizeModifier;
+	const [prize, setPrize] = useState(0);
 
 	useEffect(() => {
 		if (!isTouched) return;
-		dispatch(increaseScoreCount({amount: prize}));
+		setPrize(0);
+		setTimeout(() => {
+			setPrize(betValue * prizeModifier);
+		}, 5000); //animDuration
 	}, [indices]);
+
+	useEffect(() => {
+		if (!prize) return;
+		dispatch(increaseScoreCount({amount: prize}));
+	}, [prize])
 
 	return (
 		<ImageBackground

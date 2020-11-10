@@ -84,7 +84,8 @@ export default function MachineReel({data}) {
 	if(isSpinning) {
 		const topOffset = index * itemHeight - itemHeight;
 
-		const animDuration = index <= 50 ? index * 100 : 5000;
+		// const animDuration = index <= 50 ? index * 100 : 5000;
+		animDuration = 5000;
 
 		startAnim(topOffset, animDuration);
 
@@ -95,6 +96,7 @@ export default function MachineReel({data}) {
 
 	return (
 		<Animated.FlatList
+			
 			ref={listRef}
 			style={styles.list}
 			contentContainerStyle={styles.contentContainer}
@@ -108,8 +110,11 @@ export default function MachineReel({data}) {
 			)}
 			maxToRenderPerBatch={30}
 			updateCellsBatchingPeriod={5}
-			windowSize={31}
-			initialNumToRender={180}
+			windowSize={list.length / 6 /*6 = initItems.length */}
+			initialNumToRender={list.length} //listLength
+			bounces={false}
+			scrollEnabled={false}
+			showsVerticalScrollIndicator={false}
 		/>
 	)
 }

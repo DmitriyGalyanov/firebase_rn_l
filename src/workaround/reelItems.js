@@ -28,7 +28,11 @@ export const initItems = [
 function getBigList() {
 	let items = [];
 
-	for (let i = 0; i < 30; i++) { //listLength === 180
+	// for (let i = 0; i < 30; i++) { //listLength === 180
+	// 	items = items.concat(initItems);
+	// }
+	
+	for (let i = 0; i < 20; i++) { //listLength === 120
 		items = items.concat(initItems);
 	}
 
