@@ -1,14 +1,18 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useRef, useEffect} from 'react';
 import PropTypes from 'prop-types';
 
 import {
-	TouchableOpacity,
 	Animated,
-	Text,
 	Easing,
 } from 'react-native';
 
 import ReelItem from 'components/ReelItem';
+
+import {useDispatch, useSelector} from 'react-redux';
+import {
+	selectSlotMachineData,
+	stopSpinning,
+} from 'state_slices/slotMachineSlice';
 
 import styles from './styles';
 
@@ -22,20 +26,17 @@ MachineReel.propTypes = {
 	}).isRequired,
 };
 export default function MachineReel({data}) {
-	const {items} = data;
+	const dispatch = useDispatch();
+
+	const {reelNumber} = data;
+
+	const {isSpinning, indices} = useSelector(selectSlotMachineData);
+
+	const index = indices[reelNumber];
+
+	const {items: list} = data;
 
 	const itemHeight = 95;
-
-	const [list, setList] = useState(items);
-
-	const getMoreData = () => {
-
-		setList(list.concat(items));
-	};
-
-	const onScrollToEnd = () => {
-		getMoreData();
-	};
 
 	const renderItem = (item) => {
 		const {itemName} = item.item;
@@ -64,33 +65,35 @@ export default function MachineReel({data}) {
 		return () => scrollAnimation.current.removeAllListeners()
 	}, []);
 
-	const testF = () => {
-		const index = 5;
-		//counts from 0 //will come from RNG
-
-		const topOffset = index * itemHeight - itemHeight;
-
-		let animDuration = 2000;
-		if (20 <= index <= 50) {
-			animDuration = index * 100;
-		}
-		if (index > 50) {
-			animDuration = 5000;
-		}
+	const startAnim = (topOffset, animDuration) => {
+		// Animated.timing(scrollAnimation.current, {
+		// 	toValue: 0,
+		// 	duration: 1,
+		// 	useNativeDriver: true,
+		// }).start(); //scroll to top
 
 		Animated.timing(scrollAnimation.current, {
 			toValue: topOffset,
-			duration: 5000,
+			duration: animDuration,
 			useNativeDriver: true,
 			easing: Easing.out(Easing.quad),
-		}).start()
-	}
+		}).start();
+	};
+
+
+	if(isSpinning) {
+		const topOffset = index * itemHeight - itemHeight;
+
+		const animDuration = index <= 50 ? index * 100 : 5000;
+
+		startAnim(topOffset, animDuration);
+
+		setTimeout(() => {
+			dispatch(stopSpinning());
+		}, animDuration);
+	};
 
 	return (
-		<>
-		<TouchableOpacity onPress={testF} style={{height: 150, width: 70}}>
-			<Text>test</Text>
-		</TouchableOpacity>
 		<Animated.FlatList
 			ref={listRef}
 			style={styles.list}
@@ -108,6 +111,5 @@ export default function MachineReel({data}) {
 			windowSize={31}
 			initialNumToRender={180}
 		/>
-		</>
 	)
 }

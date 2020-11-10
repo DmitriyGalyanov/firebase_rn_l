@@ -28,9 +28,9 @@ const App: () => React$Node = () => {
 			.setDefaults({
 				test_condition3: 'not_fetched',
 			})
-			.then(() => {
-				console.log('default remote config values set')
-			})
+			// .then(() => {
+			// 	console.log('default remote config values set')
+			// })
 			.then(() => remoteConfig().fetchAndActivate())
 			// .then(fetched => {
 			// 	if (fetched) {

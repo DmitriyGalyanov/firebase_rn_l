@@ -18,7 +18,7 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
 
 async function getInstanceId() {
 	const token = await iid().getToken();
-	console.log('FCM token', token);
+	// console.log('FCM token', token);
 }
 
 getInstanceId();
