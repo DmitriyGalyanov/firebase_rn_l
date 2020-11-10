@@ -20,8 +20,9 @@ export default function SpinButton() {
 
 	const {isSpinning} = useSelector(selectSlotMachineData);
 
+	const listLength = 300; //LaDnO
 	// const listLength = 180; //LaDnO
-	const listLength = 90; //LaDnO
+	// const listLength = 90; //LaDnO
 
 	const getRandomInt = (min = 10, max = list.length - 2) => {
 		return Math.floor(Math.random() * (max - min)) + min;
