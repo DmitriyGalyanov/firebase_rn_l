@@ -5,7 +5,7 @@ import {
 	Image,
 } from 'react-native';
 
-import img from './background.png';
+// import img from './background.png';
 
 import {useDispatch, useSelector} from 'react-redux';
 import {
@@ -20,6 +20,10 @@ export default function SpinButton() {
 	const dispatch = useDispatch();
 
 	const {isSpinning} = useSelector(selectSlotMachineData);
+	
+	const background = isSpinning
+		? require('./background_disabled.png')
+		: require('./background.png');
 
 	const listLength = 300; //LaDnO
 
@@ -48,7 +52,7 @@ export default function SpinButton() {
 			disabled={isSpinning}
 		>
 			<Image
-				source={img}
+				source={background}
 				style={styles.img}
 			/>
 		</TouchableOpacity>

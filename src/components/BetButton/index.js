@@ -10,12 +10,12 @@ import {
 import styles from './styles';
 
 
-BetBlock.propTypes = {
+BetButton.propTypes = {
 	title: PropTypes.string.isRequired,
 	onPress: PropTypes.func.isRequired,
 	isDisabled: PropTypes.bool,
 };
-export default function BetBlock({title, onPress, isDisabled}) {
+export default function BetButton({title, onPress, isDisabled}) {
 	const background = isDisabled
 		? require('./background_disabled.png')
 		: require('./background.png');

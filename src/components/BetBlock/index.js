@@ -20,7 +20,7 @@ import styles from './styles';
 export default function BetBlock() {
 	const dispatch = useDispatch();
 
-	const {betValue} = useSelector(selectSlotMachineData);
+	const {betValue, isSpinning} = useSelector(selectSlotMachineData);
 
 	const maxBetValue = 100;
 	const minBetValue = 10;
@@ -43,13 +43,13 @@ export default function BetBlock() {
 			<BetButton
 				title='—'
 				onPress={() => handleDecrement()}
-				isDisabled={decrementDisabled}
+				isDisabled={decrementDisabled || isSpinning}
 			/>
 			<BetCount value={betValue}/>
 			<BetButton
 				title='+'
 				onPress={() => handleIncrement()}
-				isDisabled={incrementDisabled}
+				isDisabled={incrementDisabled || isSpinning}
 			/>
 		</View>
 	)
