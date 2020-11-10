@@ -1,10 +1,10 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-	wrap: {
+	list: {
 		height: 300,
 	},
-	wrapContainer: {
+	contentContainer: {
 		paddingVertical: 4,
 		paddingHorizontal: 6,
 		backgroundColor: 'rgba(60, 24, 8, 0.9)',

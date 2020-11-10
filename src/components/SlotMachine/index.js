@@ -8,77 +8,12 @@ import MachineReel from 'components/MachineReel';
 
 import styles from './styles';
 
+import items from '../../workaround/reelItems';
 
 const slotMachineReels = [
-	{
-		reelNumber: 1,
-		items: [
-			{
-				itemName: '777',
-			},
-			{
-				itemName: 'bananas',
-			},
-			{
-				itemName: 'cherry',
-			},
-			{
-				itemName: 'strawberry',
-			},
-			{
-				itemName: 'tomato',
-			},
-			{
-				itemName: 'watermelon',
-			},
-		]
-	},
-	{
-		reelNumber: 1,
-		items: [
-			{
-				itemName: '777',
-			},
-			{
-				itemName: 'bananas',
-			},
-			{
-				itemName: 'cherry',
-			},
-			{
-				itemName: 'strawberry',
-			},
-			{
-				itemName: 'tomato',
-			},
-			{
-				itemName: 'watermelon',
-			},
-		]
-	},
-	{
-		reelNumber: 1,
-		items: [
-			{
-				itemName: '777',
-			},
-			{
-				itemName: 'bananas',
-			},
-			{
-				itemName: 'cherry',
-			},
-			{
-				itemName: 'strawberry',
-			},
-			{
-				itemName: 'tomato',
-			},
-			{
-				itemName: 'watermelon',
-			},
-		],
-	}
+	{reelNumber: 1, items},
+	{reelNumber: 2, items},
+	{reelNumber: 3, items}
 ];
 
 export default function SlotMachine() {
