@@ -7,10 +7,16 @@ import {
 
 import background from './background.png';
 
+import {useSelector} from 'react-redux';
+import {
+	selectSlotMachineData,
+} from 'state_slices/slotMachineSlice';
+
 import styles from './styles';
 
 
 export default function ScoreCount() {
+	const {scoreCount} = useSelector(selectSlotMachineData);
 
 	return (
 		<ImageBackground
@@ -18,7 +24,7 @@ export default function ScoreCount() {
 			style={styles.wrap}
 		>
 			<Text style={styles.text}>
-				scoreCount
+				{scoreCount ?? 0}
 			</Text>
 		</ImageBackground>
 	)
