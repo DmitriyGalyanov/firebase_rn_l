@@ -6,11 +6,10 @@ import {
 
 import {useSelector, useDispatch} from 'react-redux';
 import {
-	selectBetData,
+	selectSlotMachineData,
 	incrementBet,
 	decrementBet,
-} from 'state_slices/betSlice';
-
+} from 'state_slices/slotMachineSlice';
 
 import BetButton from 'components/BetButton';
 import BetCount from 'components/BetCount';
@@ -21,11 +20,11 @@ import styles from './styles';
 export default function BetBlock() {
 	const dispatch = useDispatch();
 
-	const {currentBetValue: betValue} = useSelector(selectBetData);
+	const {betValue} = useSelector(selectSlotMachineData);
 
 	const maxBetValue = 100;
 	const minBetValue = 10;
-	//check betSlice comments//
+	//check slotMachineSlice comments//
 
 	const decrementDisabled = betValue <= minBetValue;
 	const incrementDisabled = betValue >= maxBetValue;

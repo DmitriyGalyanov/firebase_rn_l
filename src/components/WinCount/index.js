@@ -21,7 +21,7 @@ import styles from './styles';
 export default function WinCount() {
 	const dispatch = useDispatch();
 
-	const {isTouched, indices, scoreCount} = useSelector(selectSlotMachineData);
+	const {isTouched, indices, betValue} = useSelector(selectSlotMachineData);
 
 	const getCombination = () => {
 		const indicesAmount = Object.keys(indices).length;
@@ -72,15 +72,12 @@ export default function WinCount() {
 
 	const prizeModifier = getPrizeModifier();
 
+	const prize = betValue * prizeModifier;
+
 	useEffect(() => {
 		if (!isTouched) return;
-		dispatch(increaseScoreCount({amount: prizeModifier}));
-		console.log(prizeModifier, 'dispa')
+		dispatch(increaseScoreCount({amount: prize}));
 	}, [indices]);
-
-	console.log(scoreCount, 'score count')
-
-	console.log('Combination: ', combination, 'Modifier: ', prizeModifier);
 
 	return (
 		<ImageBackground
@@ -88,8 +85,8 @@ export default function WinCount() {
 			style={styles.wrap}
 		>
 			<Text style={styles.text}>
-				{!isTouched && 'WinCount'}
-				{isTouched && (prizeModifier)}
+				{!isTouched && 0}
+				{isTouched && (prize)}
 			</Text>
 		</ImageBackground>
 	)
