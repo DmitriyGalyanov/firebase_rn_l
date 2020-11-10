@@ -15,18 +15,18 @@ export const modalsSlice = createSlice({
 	],
 
 	reducers: {
-		openInfoModal: (state, action) => {
+		openInfoModal: (state, _) => {
 			state[0].isOpen = true;
 			// you sure can use findIndex() / find()
 		},
-		closeInfoModal: (state, action) => {
+		closeInfoModal: (state, _) => {
 			state[0].isOpen = false
 		},
 
-		openSettingsModal: (state, action) => {
+		openSettingsModal: (state, _) => {
 			state[1].isOpen = true;
 		},
-		closeSettingsModal: (state, action) => {
+		closeSettingsModal: (state, _) => {
 			state[1].isOpen = false
 		},
 	}

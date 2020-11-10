@@ -6,7 +6,7 @@ import {
 	Image,
 } from 'react-native';
 
-import images from '../../imgs/images';
+import images from 'reel_item_imgs/images';
 
 import styles from './styles';
 
@@ -17,17 +17,15 @@ ReelItem.propTypes = {
 };
 export default function ReelItem({itemName, height, width}) {
 
-	let pathToImg = null;
-
 	const getImage = () => {
 		switch (itemName) {
-			case '777': return images[777]; break;
-			case 'bananas': return images.bananas; break;
-			case 'cherry': return images.cherry; break;
-			case 'strawberry': return images.strawberry; break;
-			case 'tomato': return images.tomato; break;
-			case 'watermelon': return images.watermelon; break;
-			default: pathToImg = null;
+			case '777': return images[777];
+			case 'bananas': return images.bananas;
+			case 'cherry': return images.cherry;
+			case 'strawberry': return images.strawberry;
+			case 'tomato': return images.tomato;
+			case 'watermelon': return images.watermelon;
+			default: return images[777]; //don't have a placeholder
 		};
 	};
 

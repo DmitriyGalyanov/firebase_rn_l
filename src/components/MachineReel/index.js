@@ -2,9 +2,9 @@ import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
 
 import {
+	View,
 	Animated,
 	Easing,
-	View,
 } from 'react-native';
 
 import ReelItem from 'components/ReelItem';

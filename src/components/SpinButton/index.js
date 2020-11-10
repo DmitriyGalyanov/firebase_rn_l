@@ -5,15 +5,16 @@ import {
 	Image,
 } from 'react-native';
 
+import img from './background.png';
+
 import {useDispatch, useSelector} from 'react-redux';
 import {
 	selectSlotMachineData,
 	startSpinning,
 } from 'state_slices/slotMachineSlice';
 
-import img from './background.png';
-
 import styles from './styles';
+
 
 export default function SpinButton() {
 	const dispatch = useDispatch();

@@ -6,9 +6,10 @@ import {
 
 import MachineReel from 'components/MachineReel';
 
+import items from 'workaround/reelItems';
+
 import styles from './styles';
 
-import items from '../../workaround/reelItems';
 
 const slotMachineReels = [
 	{reelNumber: 1, items},

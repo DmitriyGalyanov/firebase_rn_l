@@ -14,11 +14,11 @@ export const settingsSlice = createSlice({
 	},
 
 	reducers: {
-		toggleTest1: (state, action) => {
+		toggleTest1: (state, _) => {
 			state.test1.isActive = !state.test1.isActive;
 		},
 
-		toggleTest2: (state, action) => {
+		toggleTest2: (state, _) => {
 			state.test2.isActive = !state.test2.isActive;
 		},
 	}

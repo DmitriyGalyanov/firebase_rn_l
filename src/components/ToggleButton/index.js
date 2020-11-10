@@ -25,7 +25,7 @@ export default function ToggleButton({onPress, isActive}) {
 		Animated.timing(target, {
 			toValue: toValue,
 			duration: duration,
-			useNativeDriver: false
+			useNativeDriver: false,
 		}).start();
 	};
 

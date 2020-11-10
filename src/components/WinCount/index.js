@@ -13,7 +13,7 @@ import {
 	increaseScoreCount,
 } from 'state_slices/slotMachineSlice';
 
-import {initItems} from '../../workaround/reelItems';
+import {initItems} from 'workaround/reelItems';
 
 import styles from './styles';
 
