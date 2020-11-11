@@ -9,11 +9,34 @@ import messaging from '@react-native-firebase/messaging';
 import App from './App';
 import {name as appName} from './app.json';
 
-import iid from '@react-native-firebase/iid';
+import appsFlyer from 'react-native-appsflyer';
+
+// import iid from '@react-native-firebase/iid';
+
+
+appsFlyer.initSdk(
+	{
+		devKey: 'tzTMezPNAAJ2jKPjNJezui',
+		isDebug: true,
+	},
+	result => {
+		console.log(result, 'res')
+	},
+	error => {
+		console.error(error)
+	}
+);
+
+appsFlyer.getAppsFlyerUID((err, appsFlyerUID) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log('on getAppsFlyerUID: ' + appsFlyerUID);
+  }
+});
 
 messaging().setBackgroundMessageHandler(async remoteMessage => {
 	console.log('Message handled in the background!', remoteMessage);
-	console.log('And I\'m not sure what am I supposed to do about it')
 });
 
 // async function getInstanceId() {

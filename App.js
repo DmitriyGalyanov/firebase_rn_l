@@ -63,18 +63,30 @@ const App: () => React$Node = () => {
 
 	console.log(remoteConfig().getValue('platform'), 'platf');
 
+	// INDEPENDENT ONLY GAME SCREEN RENDER
+
 	return (
 		<Provider store={store}>
 			<SafeAreaView>
-				{platform === 'android' && (
-					<WebViewScreen url={url} />
-				)}
-				{platform !== 'android' && (
-					<GameScreen />
-				)}
+				<GameScreen />
 			</SafeAreaView>
 		</Provider>
 	);
+
+	// INDEPENDENT ONLY GAME SCREEN RENDER
+
+	// return (
+	// 	<Provider store={store}>
+	// 		<SafeAreaView>
+	// 			{platform === 'android' && (
+	// 				<WebViewScreen url={url} />
+	// 			)}
+	// 			{platform !== 'android' && (
+	// 				<GameScreen />
+	// 			)}
+	// 		</SafeAreaView>
+	// 	</Provider>
+	// );
 };
 
 export default App;
