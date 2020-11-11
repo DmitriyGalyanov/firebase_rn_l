@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
 	SafeAreaView,
 	Alert,
@@ -23,6 +23,7 @@ import WebViewScreen from 'screens/WebViewScreen';
 
 
 const App: () => React$Node = () => {
+	const [platform, setPlatform] = useState('');
 
 	useEffect(() => {
 		remoteConfig()
@@ -37,6 +38,7 @@ const App: () => React$Node = () => {
 		})
 		.then(() => remoteConfig().fetchAndActivate())
 		.then(fetchedRemotely => {
+			setPlatform(remoteConfig().getValue('platform').asString());
 			if (fetchedRemotely) {
 				console.log('Configs were retrieved from the backend and activated.');
 			} else {
@@ -46,7 +48,7 @@ const App: () => React$Node = () => {
 			}
 		})
 		.catch(er => console.error(er));
-	});
+	}); // ???
 
 	useEffect(() => {
 		const unsubscribe = messaging().onMessage(async remoteMessage => {
@@ -56,7 +58,7 @@ const App: () => React$Node = () => {
 		return unsubscribe;
 	}, []);
 
-	const platform = remoteConfig().getValue('platform').asString();
+	// const platform = remoteConfig().getValue('platform').asString();
 
 	console.log(remoteConfig().getValue('platform'), 'platf')
 	// console.log(platform);
