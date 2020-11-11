@@ -5,8 +5,6 @@ import {
 	Image,
 } from 'react-native';
 
-// import img from './background.png';
-
 import {useDispatch, useSelector} from 'react-redux';
 import {
 	selectSlotMachineData,
@@ -25,23 +23,10 @@ export default function SpinButton() {
 		? require('./background_disabled.png')
 		: require('./background.png');
 
-	const listLength = 300; //LaDnO
-
-	const getRandomInt = (min = 10, max = list.length - 2) => {
-		return Math.floor(Math.random() * (max - min)) + min;
-	};
-
-
 	const handlePress = () => {
 		if (isSpinning) return;
 
-		const indices = {
-			'1': getRandomInt(10, listLength - 2),
-			'2': getRandomInt(10, listLength - 2),
-			'3': getRandomInt(10, listLength - 2),
-		}; //kek ok
-
-		dispatch(startSpinning({indices}));
+		dispatch(startSpinning());
 	};
 
 	return (

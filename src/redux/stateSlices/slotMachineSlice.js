@@ -15,8 +15,18 @@ export const slotMachineSlice = createSlice({
 	},
 
 	reducers: {
-		startSpinning: (state, action) => {
-			const {indices} = action.payload;
+		startSpinning: (state, _) => {
+			const listLength = 300; //workaround...
+
+			const getRandomInt = (min = 10, max = list.length - 2) => {
+				return Math.floor(Math.random() * (max - min)) + min;
+			};
+		
+			const indices = {
+				'1': getRandomInt(10, listLength - 2),
+				'2': getRandomInt(10, listLength - 2),
+				'3': getRandomInt(10, listLength - 2),
+			}; //oK
 			state.indices = indices;
 
 			state.isTouched = true;
