@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import {
 	View,
-	Text,
 } from 'react-native';
 
 import {WebView} from 'react-native-webview';
@@ -11,9 +10,9 @@ import {WebView} from 'react-native-webview';
 import {WINDOW_HEIGHT, WINDOW_WIDTH} from '../../constants';
 
 WebViewScreen.propTypes = {
-	platform: PropTypes.string.isRequired,
+	url: PropTypes.string.isRequired,
 };
-export default function WebViewScreen({platform}) {
+export default function WebViewScreen({url}) {
 
 	return (
 		<View
@@ -24,7 +23,8 @@ export default function WebViewScreen({platform}) {
 		>
 			<WebView
 				source={{
-					uri: 'https://www.google.com/'
+					// uri: 'https://www.google.com/'
+					uri: url
 				}}
 			/>
 		</View>
