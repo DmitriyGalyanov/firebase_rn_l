@@ -1,19 +1,23 @@
 import {StyleSheet} from 'react-native';
 
+import {BET_BUTTON_WIDTH, BET_BUTTON_HEIGHT} from '../../constants';
+
 const styles = StyleSheet.create({
 	wrap: {
-		width: 45,
-		height: 45,
+		width: BET_BUTTON_WIDTH,
+		height: BET_BUTTON_HEIGHT,
 	},
 
 	button: {
-		width: 45,
-		height: 45,
+		width: BET_BUTTON_WIDTH,
+		height: BET_BUTTON_HEIGHT,
 		alignItems: 'center',
+		justifyContent: 'center',
+		paddingBottom: 7,
 	},
 	
 	text: {
-		lineHeight: 35,
+		textAlign: 'center',
 		color: '#fff',
 		fontSize: 24,
 	},

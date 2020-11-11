@@ -11,11 +11,11 @@ const styles = StyleSheet.create({
 	wrap: {
 		width: wrapWidth,
 		height: wrapHeight,
-		alignItems: 'center',
+		justifyContent: 'center',
+		paddingBottom: 8,
 	},
 
 	text: {
-		lineHeight: wrapHeight - 16,
 		textAlign: 'center',
 		fontSize: 20,
 		color: '#fff',

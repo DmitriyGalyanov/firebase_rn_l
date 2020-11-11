@@ -1,9 +1,11 @@
 import {StyleSheet} from 'react-native';
 
+import {BET_COUNT_WIDTH, BET_COUNT_HEIGHT} from '../../constants';
+
 const styles = StyleSheet.create({
 	wrap: {
-		width: 120,
-		height: 120 / 1.50210970464135,
+		width: BET_COUNT_WIDTH,
+		height: BET_COUNT_HEIGHT,
 		alignItems: 'center',
 	},
 
