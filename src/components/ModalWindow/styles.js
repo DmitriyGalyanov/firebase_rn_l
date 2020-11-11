@@ -1,12 +1,12 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 
-let {height: screenHeight, width: screenWidth} = Dimensions.get('window');
+import constants from '../../constants';
 
 const styles = StyleSheet.create({
 	wrap: {
 		padding: 8,
-		height: screenHeight,
-		width: screenWidth,
+		height: constants.WINDOW_HEIGHT,
+		width: constants.WINDOW_WIDTH,
 		position: 'absolute',
 		backgroundColor: 'rgba(0, 0, 0, 0.9)',
 	},

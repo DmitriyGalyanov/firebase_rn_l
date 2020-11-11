@@ -15,13 +15,18 @@ import {
 	stopSpinning,
 } from 'state_slices/slotMachineSlice';
 
+import {
+	REEL_ITEM_WIDTH,
+	REEL_ITEM_HEIGHT,
+} from '../../constants';
+
 import styles from './styles';
 
 
 MachineReel.propTypes = {
 	data: PropTypes.shape({
 		items: PropTypes.arrayOf(PropTypes.shape({
-			itemName: PropTypes.string
+			itemName: PropTypes.string,
 		})),
 		reelNumber: PropTypes.number.isRequired,
 	}).isRequired,
@@ -37,7 +42,7 @@ export default function MachineReel({data}) {
 
 	const {items: list} = data;
 
-	const itemHeight = 95;
+	const itemHeight = REEL_ITEM_HEIGHT;
 	
 	const listRef = useRef(null);
 
@@ -79,8 +84,10 @@ export default function MachineReel({data}) {
 					return (
 						<ReelItem key={index}
 							itemName={itemName}
-							height={itemHeight}
-							width={100}
+							// height={itemHeight}
+							// width={100}
+							height={REEL_ITEM_HEIGHT}
+							width={REEL_ITEM_WIDTH}
 						/>
 					)
 				})}

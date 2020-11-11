@@ -1,20 +1,20 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 
-let {height: screenHeight, width: screenWidth} = Dimensions.get('window');
+import constants from '../../constants';
 
 const styles = StyleSheet.create({
 
 	wrap: {
 		padding: 8,
 		resizeMode: 'cover',
-		height: screenHeight,
-		width: screenWidth,
+		height: constants.WINDOW_HEIGHT,
+		width: constants.WINDOW_WIDTH,
 	},
 
 	mainScreenWrap: {
 		zIndex: 10,
-		height: screenHeight - 16,
-		width: screenWidth - 16,
+		height: constants.WINDOW_HEIGHT - 16,
+		width: constants.WINDOW_WIDTH - 16,
 		justifyContent: 'space-between',
 	}
 });

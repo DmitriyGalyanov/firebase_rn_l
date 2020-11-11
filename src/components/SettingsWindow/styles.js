@@ -1,17 +1,17 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 
-const {height: screenHeight} = Dimensions.get('window');
+import constants from '../../constants';
 
 const styles = StyleSheet.create({
 	wrap: {
-		minHeight: screenHeight,
+		minHeight: constants.WINDOW_HEIGHT,
 	},
 
 	blockWrap: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		minHeight: screenHeight,
-	}
+		minHeight: constants.WINDOW_HEIGHT,
+	},
 });
 
 export default styles;

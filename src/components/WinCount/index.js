@@ -54,7 +54,7 @@ export default function WinCount() {
 
 		const isStrawberry = combination.filter(item => item === 'strawberry').length;
 		if (isStrawberry === 3) return 150;
-		
+
 		const isBananas = combination.filter(item => item === 'bananas').length;
 		if (isBananas === 3) return 100;
 		
@@ -85,7 +85,7 @@ export default function WinCount() {
 	useEffect(() => {
 		if (!prize) return;
 		dispatch(increaseScoreCount({amount: prize}));
-	}, [prize])
+	}, [prize]);
 
 	return (
 		<ImageBackground
