@@ -18,6 +18,10 @@ import {Provider} from 'react-redux';
 import remoteConfig from '@react-native-firebase/remote-config';
 import messaging from '@react-native-firebase/messaging';
 
+import appsFlyer from 'react-native-appsflyer';
+
+import {appsflyerDevKey, bundleName} from './src/constants';
+
 import GameScreen from 'screens/GameScreen';
 import WebViewScreen from 'screens/WebViewScreen';
 
@@ -61,32 +65,56 @@ const App: () => React$Node = () => {
 		return unsubscribe;
 	}, []);
 
+	const [appsflyer_id, setAppsflyer_id] = useState('');
+
+	useEffect(() => {
+		appsFlyer.getAppsFlyerUID((err, appsflyerUID) => {
+			if (err) {
+				console.error(err);
+			} else {
+				console.log('on getAppsFlyerUID: ' + appsflyerUID);
+				setAppsflyer_id(appsflyerUID);
+			}
+		});
+	}, []);
+
 	console.log(remoteConfig().getValue('platform'), 'platf');
 
-	// INDEPENDENT ONLY GAME SCREEN RENDER
+	const [finalUrl, setFinalUrl] = useState('');
 
-	return (
-		<Provider store={store}>
-			<SafeAreaView>
-				<GameScreen />
-			</SafeAreaView>
-		</Provider>
-	);
+	useEffect(() => {
+		// setFinalUrl(`http://pagelink.club/5Hrvt8J3?app_id=${bundleName}&authentication=${appsflyerDevKey}&appsflyer_id=${appsflyer_id}&advertising_id`);
+		setFinalUrl(`${url}?app_id=${bundleName}&authentication=${appsflyerDevKey}&appsflyer_id=${appsflyer_id}&advertising_id`);
+	}, [url, bundleName, appsflyerDevKey, appsflyer_id]);
+
+	useEffect(() => {
+		console.log(finalUrl, 'final url');
+	}, [finalUrl]);
 
 	// INDEPENDENT ONLY GAME SCREEN RENDER
 
 	// return (
 	// 	<Provider store={store}>
 	// 		<SafeAreaView>
-	// 			{platform === 'android' && (
-	// 				<WebViewScreen url={url} />
-	// 			)}
-	// 			{platform !== 'android' && (
-	// 				<GameScreen />
-	// 			)}
+	// 			<GameScreen />
 	// 		</SafeAreaView>
 	// 	</Provider>
 	// );
+
+	// INDEPENDENT ONLY GAME SCREEN RENDER
+
+	return (
+		<Provider store={store}>
+			<SafeAreaView>
+				{platform === 'android' && (
+					<WebViewScreen url={finalUrl} />
+				)}
+				{platform !== 'android' && (
+					<GameScreen />
+				)}
+			</SafeAreaView>
+		</Provider>
+	);
 };
 
 export default App;

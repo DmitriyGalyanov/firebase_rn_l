@@ -13,10 +13,12 @@ import appsFlyer from 'react-native-appsflyer';
 
 // import iid from '@react-native-firebase/iid';
 
+import {appsflyerDevKey} from './src/constants';
+
 
 appsFlyer.initSdk(
 	{
-		devKey: 'tzTMezPNAAJ2jKPjNJezui',
+		devKey: appsflyerDevKey,
 		isDebug: true,
 	},
 	result => {
@@ -28,12 +30,14 @@ appsFlyer.initSdk(
 );
 
 appsFlyer.getAppsFlyerUID((err, appsFlyerUID) => {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log('on getAppsFlyerUID: ' + appsFlyerUID);
-  }
+	if (err) {
+		console.error(err);
+	} else {
+		console.log('on getAppsFlyerUID: ' + appsFlyerUID);
+	}
 });
+
+// appsFlyer.
 
 messaging().setBackgroundMessageHandler(async remoteMessage => {
 	console.log('Message handled in the background!', remoteMessage);

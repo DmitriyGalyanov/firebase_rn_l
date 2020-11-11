@@ -24,6 +24,9 @@ const betCountToBetButtonWidthRatio = 2.666666666666667;
 const betButtonWidth = betCountWidth / betCountToBetButtonWidthRatio;
 const betButtonHeight = betButtonWidth;
 
+const bundleName = 'com.firebase_rn_l';
+const appsflyerDevKey = 'tzTMezPNAAJ2jKPjNJezui';
+
 
 const constants = {
 	WINDOW_WIDTH: windowWidth,
@@ -38,6 +41,8 @@ const constants = {
 	BET_COUNT_HEIGHT: betCountHeight,
 	BET_BUTTON_WIDTH: betButtonWidth,
 	BET_BUTTON_HEIGHT: betButtonHeight,
+	appsflyerDevKey,
+	bundleName,
 };
 
 export {
@@ -53,6 +58,8 @@ export {
 	betCountHeight as BET_COUNT_HEIGHT,
 	betButtonWidth as BET_BUTTON_WIDTH,
 	betButtonWidth as BET_BUTTON_HEIGHT,
+	appsflyerDevKey,
+	bundleName,
 };
 
 export default constants;
