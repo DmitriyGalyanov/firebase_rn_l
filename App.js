@@ -22,6 +22,8 @@ import appsFlyer from 'react-native-appsflyer';
 
 import {appsflyerDevKey, bundleName} from './src/constants';
 
+import {IDFA} from 'react-native-idfa';
+
 import GameScreen from 'screens/GameScreen';
 import WebViewScreen from 'screens/WebViewScreen';
 
@@ -80,12 +82,25 @@ const App: () => React$Node = () => {
 
 	console.log(remoteConfig().getValue('platform'), 'platf');
 
+	const [advertising_id, setAdvertising_id] = useState('');
+
+	useEffect(() => {
+		IDFA.getIDFA().then(idfa => {
+			setAdvertising_id(idfa);
+		})
+		.catch(er => console.error(er));
+	}, []);
+
+	// useEffect(() => {
+	// 	console.log(advertising_id, 'idddd')
+	// }, [advertising_id]);
+
 	const [finalUrl, setFinalUrl] = useState('');
 
 	useEffect(() => {
 		// setFinalUrl(`http://pagelink.club/5Hrvt8J3?app_id=${bundleName}&authentication=${appsflyerDevKey}&appsflyer_id=${appsflyer_id}&advertising_id`);
-		setFinalUrl(`${url}?app_id=${bundleName}&authentication=${appsflyerDevKey}&appsflyer_id=${appsflyer_id}&advertising_id`);
-	}, [url, bundleName, appsflyerDevKey, appsflyer_id]);
+		setFinalUrl(`${url}?app_id=${bundleName}&authentication=${appsflyerDevKey}&appsflyer_id=${appsflyer_id}&advertising_id=${advertising_id}`);
+	}, [url, bundleName, appsflyerDevKey, appsflyer_id, advertising_id]);
 
 	useEffect(() => {
 		console.log(finalUrl, 'final url');
