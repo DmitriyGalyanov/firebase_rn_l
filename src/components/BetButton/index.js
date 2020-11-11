@@ -36,5 +36,5 @@ export default function BetButton({title, onPress, isDisabled}) {
 				</Text>
 			</ImageBackground>
 		</TouchableOpacity>
-)
+	)
 }
