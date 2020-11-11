@@ -10,10 +10,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@react-native-firebase/app": "^8.4.7",
-    "@react-native-firebase/iid": "^7.4.10",
-    "@react-native-firebase/messaging": "^7.9.2",
-    "@react-native-firebase/remote-config": "^9.0.12",
+    "@react-native-firebase/app": "^9.0.0",
+    "@react-native-firebase/iid": "^7.4.12",
+    "@react-native-firebase/messaging": "^8.0.1",
+    "@react-native-firebase/remote-config": "^10.0.1",
     "@reduxjs/toolkit": "^1.4.0",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
