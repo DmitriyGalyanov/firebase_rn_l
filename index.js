@@ -16,11 +16,11 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
 	console.log('And I\'m not sure what am I supposed to do about it')
 });
 
-async function getInstanceId() {
-	const token = await iid().getToken();
-	// console.log('FCM token', token);
-}
+// async function getInstanceId() {
+// 	const token = await iid().getToken();
+// 	// console.log('FCM token', token);
+// }
 
-getInstanceId();
+// getInstanceId();
 
 AppRegistry.registerComponent(appName, () => App);

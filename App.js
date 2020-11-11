@@ -58,7 +58,10 @@ const App: () => React$Node = () => {
 
 	const platform = remoteConfig().getValue('platform').asString();
 
-	console.log(platform);
+	console.log(remoteConfig().getValue('platform'), 'platf')
+	// console.log(platform);
+
+	// console.log('test');
 
 	return (
 		<Provider store={store}>
