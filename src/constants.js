@@ -28,6 +28,8 @@ const betButtonHeight = betButtonWidth;
 const bundleName = 'com.test.test';
 const appsflyerDevKey = 'tzTMezPNAAJ2jKPjNJezui';
 
+const intentFilterScheme = 'test.test://';
+
 
 const constants = {
 	WINDOW_WIDTH: windowWidth,
@@ -44,6 +46,7 @@ const constants = {
 	BET_BUTTON_HEIGHT: betButtonHeight,
 	appsflyerDevKey,
 	bundleName,
+	intentFilterScheme,
 };
 
 export {
@@ -61,6 +64,7 @@ export {
 	betButtonWidth as BET_BUTTON_HEIGHT,
 	appsflyerDevKey,
 	bundleName,
+	intentFilterScheme,
 };
 
 export default constants;

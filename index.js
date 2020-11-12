@@ -15,6 +15,27 @@ import appsFlyer from 'react-native-appsflyer';
 
 import {appsflyerDevKey} from './src/constants';
 
+// var onInstallConversionDataCanceller = appsFlyer.onInstallConversionData(
+// 	(res) => {
+// 		console.log(res, 'onInstallConversionData')
+// 			if (JSON.parse(res.data.is_first_launch) == true) {
+// 					if (res.data.af_status === 'Non-organic') {
+// 							var media_source = res.data.media_source;
+// 							var campaign = res.data.campaign;
+// 							console.log('This is first launch and a Non-Organic install. Media source: ' + media_source + ' Campaign: ' + campaign);
+// 					} else if (res.data.af_status === 'Organic') {
+// 							console.log('This is first launch and a Organic Install');
+// 					}
+// 			} else {
+// 					console.log('This is not first launch');
+// 			}
+// 	},
+// );
+
+var onAppOpenAttributionCanceller = appsFlyer.onAppOpenAttribution(res => {
+	console.log(res, 'onAppOpenAttribution');
+});
+
 
 appsFlyer.initSdk(
 	{
@@ -33,11 +54,9 @@ appsFlyer.getAppsFlyerUID((err, appsFlyerUID) => {
 	if (err) {
 		console.error(err);
 	} else {
-		console.log('on getAppsFlyerUID: ' + appsFlyerUID);
+		// console.log('on getAppsFlyerUID: ' + appsFlyerUID);
 	}
 });
-
-// appsFlyer.
 
 messaging().setBackgroundMessageHandler(async remoteMessage => {
 	console.log('Message handled in the background!', remoteMessage);
@@ -45,9 +64,8 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
 
 // async function getInstanceId() {
 // 	const token = await iid().getToken();
-// 	// console.log('FCM token', token);
-// }
-
+// 	console.log('FCM token', token);
+// };
 // getInstanceId();
 
 AppRegistry.registerComponent(appName, () => App);
