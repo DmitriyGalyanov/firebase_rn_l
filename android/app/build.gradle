@@ -2,6 +2,7 @@ apply plugin: "com.android.application"
 apply plugin: 'com.google.gms.google-services'
 
 import com.android.build.OutputFile
+// import com.facebook.FacebookSdk;
 
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
@@ -183,6 +184,7 @@ android {
 }
 
 dependencies {
+    // compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
