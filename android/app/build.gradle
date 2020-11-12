@@ -132,7 +132,8 @@ android {
 
     defaultConfig {
         multiDexEnabled true
-        applicationId "com.firebase_rn_l"
+        // applicationId "com.firebase_rn_l"
+        applicationId "com.test.test"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

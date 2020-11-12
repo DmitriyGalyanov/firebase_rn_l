@@ -1,4 +1,5 @@
-package com.firebase_rn_l;
+// package com.firebase_rn_l;
+package com.test.test;
 
 import android.app.Application;
 import android.content.Context;
@@ -65,7 +66,8 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
          We use reflection here to pick up the class that initializes Flipper,
         since Flipper library is not available in release mode
         */
-        Class<?> aClass = Class.forName("com.firebase_rn_l.ReactNativeFlipper");
+        // Class<?> aClass = Class.forName("com.firebase_rn_l.ReactNativeFlipper");
+        Class<?> aClass = Class.forName("com.test.test.ReactNativeFlipper");
         aClass
             .getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
             .invoke(null, context, reactInstanceManager);

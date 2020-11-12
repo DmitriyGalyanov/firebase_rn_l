@@ -3,12 +3,12 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'firebase_rn_l' do
+target 'test.test' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
-  target 'firebase_rn_lTests' do
+  target 'test.testTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -23,10 +23,10 @@ target 'firebase_rn_l' do
   end
 end
 
-target 'firebase_rn_l-tvOS' do
-  # Pods for firebase_rn_l-tvOS
+target 'test.test-tvOS' do
+  # Pods for test.test-tvOS
 
-  target 'firebase_rn_l-tvOSTests' do
+  target 'test.test-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
