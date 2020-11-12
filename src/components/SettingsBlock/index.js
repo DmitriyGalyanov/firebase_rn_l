@@ -27,7 +27,6 @@ export default function SettingsBlock({children}) {
 			<View style={styles.closeModalButtonWrap}>
 				{children}
 			</View>
-			<Text>{token}</Text>
 			{Object.entries(settingsData).map(item => {
 				const {name, isActive} = item[1];
 				return (

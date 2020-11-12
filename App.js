@@ -108,13 +108,13 @@ const App: () => React$Node = () => {
 
 	// INDEPENDENT ONLY GAME SCREEN RENDER
 
-	// return (
-	// 	<Provider store={store}>
-	// 		<SafeAreaView>
-	// 			<GameScreen />
-	// 		</SafeAreaView>
-	// 	</Provider>
-	// );
+	return (
+		<Provider store={store}>
+			<SafeAreaView>
+				<GameScreen />
+			</SafeAreaView>
+		</Provider>
+	);
 
 	// INDEPENDENT ONLY GAME SCREEN RENDER
 

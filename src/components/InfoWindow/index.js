@@ -9,6 +9,7 @@ import InfoBlock from 'components/InfoBlock';
 
 import styles from './styles';
 
+// import {LoginButton, AccessToken, AppEventsLogger} from 'react-native-fbsdk';
 
 const infoBlocksArray = [
 	[
