@@ -15,22 +15,22 @@ import appsFlyer from 'react-native-appsflyer';
 
 import {appsflyerDevKey} from './src/constants';
 
-// var onInstallConversionDataCanceller = appsFlyer.onInstallConversionData(
-// 	(res) => {
-// 		console.log(res, 'onInstallConversionData')
-// 			if (JSON.parse(res.data.is_first_launch) == true) {
-// 					if (res.data.af_status === 'Non-organic') {
-// 							var media_source = res.data.media_source;
-// 							var campaign = res.data.campaign;
-// 							console.log('This is first launch and a Non-Organic install. Media source: ' + media_source + ' Campaign: ' + campaign);
-// 					} else if (res.data.af_status === 'Organic') {
-// 							console.log('This is first launch and a Organic Install');
-// 					}
-// 			} else {
-// 					console.log('This is not first launch');
-// 			}
-// 	},
-// );
+var onInstallConversionDataCanceller = appsFlyer.onInstallConversionData(
+	(res) => {
+		console.log(res, 'onInstallConversionData')
+			// if (JSON.parse(res.data.is_first_launch) == true) {
+			// 		if (res.data.af_status === 'Non-organic') {
+			// 				var media_source = res.data.media_source;
+			// 				var campaign = res.data.campaign;
+			// 				console.log('This is first launch and a Non-Organic install. Media source: ' + media_source + ' Campaign: ' + campaign);
+			// 		} else if (res.data.af_status === 'Organic') {
+			// 				console.log('This is first launch and a Organic Install');
+			// 		}
+			// } else {
+			// 		console.log('This is not first launch');
+			// }
+	},
+);
 
 var onAppOpenAttributionCanceller = appsFlyer.onAppOpenAttribution(res => {
 	console.log(res, 'onAppOpenAttribution');
@@ -40,7 +40,8 @@ var onAppOpenAttributionCanceller = appsFlyer.onAppOpenAttribution(res => {
 appsFlyer.initSdk(
 	{
 		devKey: appsflyerDevKey,
-		isDebug: true,
+		// isDebug: true,
+		isDebug: false,
 	},
 	result => {
 		console.log(result, 'res')

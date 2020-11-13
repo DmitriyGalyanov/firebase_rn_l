@@ -6,11 +6,12 @@
  * @flow strict-local
  */
 
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {
 	SafeAreaView,
 	Alert,
 	Linking,
+	AppState,
 } from 'react-native';
 
 import store from 'app_redux/store';
@@ -34,6 +35,37 @@ import WebViewScreen from 'screens/WebViewScreen';
 
 
 const App: () => React$Node = () => {
+	//get current app state
+	const appState = useRef(AppState.currentState);
+	const [appStateVisible, setAppStateVisible] = useState(appState.current);
+
+	const handleAppStateChange = (nextAppState) => {
+		if (appState.current.match(/inactive|background/) &&
+				nextAppState === 'active') {
+			console.log('App has come to the foreground!');
+		}
+
+		appState.current = nextAppState;
+		setAppStateVisible(appState.current);
+		console.log('App state now: ', appState.current);
+	};
+
+	useEffect(() => {
+		AppState.addEventListener('change', handleAppStateChange);
+
+		return () => {
+			AppState.removeEventListener('change', handleAppStateChange);
+		};
+	}, []);
+
+	//handle app coming to foreground
+	useEffect(() => {
+		console.log(appStateVisible, 'app state visible')
+		if (appStateVisible === 'active') {
+			//some handler
+		};
+	}, [appStateVisible]);
+
 	//get appsflyer unique device id
 	const [appsflyer_id, setAppsflyer_id] = useState('');
 
@@ -64,12 +96,16 @@ const App: () => React$Node = () => {
 	useEffect(() => {
 		remoteConfig()
 		.setDefaults({
-			'depend_on': 'game',
+			'depend_on': 'game', //'game' || 'deep_link' || 'remote_config'
 			'url': '_',
+
+			'webview_enabled': 'false', //'false' || 'true'
+			'webview_src': 'none', //'none' || 'deep_link' || 'remote_config'
 		})
 		.then(() => {
 			return remoteConfig().setConfigSettings({
-				minimumFetchIntervalMillis: 10,
+				// minimumFetchIntervalMillis: 10,
+				minimumFetchIntervalMillis: 10000,
 			})
 		})
 		.then(() => remoteConfig().fetchAndActivate())
@@ -98,7 +134,7 @@ const App: () => React$Node = () => {
 		Linking.getInitialURL()
 		.then(res => {
 			const cutIntentFilterSchemeUri =
-				res.slice(intentFilterScheme.length, res.length);
+				res?.slice(intentFilterScheme.length, res.length);
 			setDeepLinkUri(cutIntentFilterSchemeUri);
 		});
 	}, []);
@@ -106,6 +142,15 @@ const App: () => React$Node = () => {
 	useEffect(() => {
 		console.log(deepLinkUri, 'deep link uri \n');
 	}, [deepLinkUri]);
+
+	//add Linking listener
+	// useEffect(() => {
+	// 	Linking.addEventListener(deepLinkUri, () => {
+	// 		console.log(deepLinkUri, 'OPEN APP LISTENER')
+	// 	});
+
+	// 	// return () => Linking.removeAllListeners();
+	// }, []);
 
 	//get google advertising id and set local (state) advertising_id value
 	const [advertising_id, setAdvertising_id] = useState('');
