@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.test.test">
+  package="com.test.test.gbm.app">
     <uses-permission android:name="android.permission.INTERNET" />
     <application
       android:name=".MainApplication"
@@ -15,7 +15,7 @@
       <meta-data
         android:name="com.facebook.sdk.ApplicationId"
         android:value="@string/facebook_app_id"/>
-      <provider android:authorities="com.facebook.app.FacebookContentProvider411155213572091"
+      <provider android:authorities="com.facebook.app.FacebookContentProvider406444167399748"
         android:name="com.facebook.FacebookContentProvider"
         android:exported="true" />
       <activity
@@ -34,7 +34,8 @@
           <action android:name="android.intent.action.VIEW" />
           <category android:name="android.intent.category.DEFAULT" />
           <category android:name="android.intent.category.BROWSABLE" />
-          <data android:scheme="test.test" />
+          <!-- <data android:scheme="test.test" /> -->
+          <data android:scheme="test.test.gbm.app" />
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />

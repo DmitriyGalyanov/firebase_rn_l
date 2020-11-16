@@ -1,5 +1,4 @@
-// package com.firebase_rn_l;
-package com.test.test;
+package com.test.test.gbm.app;
 
 import com.facebook.react.ReactActivity;
 
@@ -36,6 +35,6 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     // return "firebase_rn_l";
-    return "test.test";
+    return "test.test.gbm.app";
   }
 }
