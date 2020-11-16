@@ -36,18 +36,21 @@ var onAppOpenAttributionCanceller = appsFlyer.onAppOpenAttribution(res => {
 	console.log(res, 'onAppOpenAttribution');
 });
 
+console.log(appsflyerDevKey, 'key');
 
 appsFlyer.initSdk(
 	{
 		devKey: appsflyerDevKey,
+		// devKey: 'tzTMezPNAAJ2jKPjNJezui',
 		// isDebug: true,
 		isDebug: false,
+		// appId: 
 	},
 	result => {
-		console.log(result, 'res')
+		console.log(result, 'appsflyer sdk initialized')
 	},
 	error => {
-		console.error(error)
+		console.error(error, 'error init appslyfer sdk')
 	}
 );
 

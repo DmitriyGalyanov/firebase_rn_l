@@ -42,12 +42,12 @@ const App: () => React$Node = () => {
 	const handleAppStateChange = (nextAppState) => {
 		if (appState.current.match(/inactive|background/) &&
 				nextAppState === 'active') {
-			console.log('App has come to the foreground!');
+			// console.log('App has come to the foreground!');
 		}
 
 		appState.current = nextAppState;
 		setAppStateVisible(appState.current);
-		console.log('App state now: ', appState.current);
+		// console.log('App state now: ', appState.current);
 	};
 
 	useEffect(() => {
@@ -60,7 +60,7 @@ const App: () => React$Node = () => {
 
 	//handle app coming to foreground
 	useEffect(() => {
-		console.log(appStateVisible, 'app state visible')
+		// console.log(appStateVisible, 'app state visible')
 		if (appStateVisible === 'active') {
 			//some handler
 		};
@@ -113,18 +113,18 @@ const App: () => React$Node = () => {
 			setDepend_on(remoteConfig().getValue('depend_on').asString());
 			setRemoteConfigUrl(remoteConfig().getValue('url').asString());
 			if (fetchedRemotely) {
-				console.log('Configs were retrieved from the backend and activated. \n');
+				// console.log('Configs were retrieved from the backend and activated. \n');
 			} else {
-				console.log(
-					'No configs were fetched from the backend, and the local configs were already activated \n',
-				);
+				// console.log(
+				// 	'No configs were fetched from the backend, and the local configs were already activated \n',
+				// );
 			}
 		})
 		.catch(er => console.error(er));
 	}, []);
 
 	useEffect(() => {
-		console.log(depend_on, 'depend_on \n');
+		// console.log(depend_on, 'depend_on \n');
 	}, [depend_on]);
 
 	//gather deep link uri and set appropriate local (state) value(s)
@@ -140,7 +140,7 @@ const App: () => React$Node = () => {
 	}, []);
 
 	useEffect(() => {
-		console.log(deepLinkUri, 'deep link uri \n');
+		// console.log(deepLinkUri, 'deep link uri \n');
 	}, [deepLinkUri]);
 
 	//add Linking listener
@@ -170,7 +170,7 @@ const App: () => React$Node = () => {
 	}, [remoteConfigUrl, bundleName, appsflyerDevKey, appsflyer_id, advertising_id]);
 
 	useEffect(() => {
-		console.log(remoteConfigFinalUrl, 'remote config dependent final uri \n');
+		// console.log(remoteConfigFinalUrl, 'remote config dependent final uri \n');
 	}, [remoteConfigFinalUrl]);
 
 	//set deep link dependent final URL
@@ -181,7 +181,7 @@ const App: () => React$Node = () => {
 	}, [deepLinkUri, bundleName, appsflyerDevKey, appsflyer_id, advertising_id]);
 
 	useEffect(() => {
-		console.log(deepLinkFinalUrl, 'deep link dependent final uri \n');
+		// console.log(deepLinkFinalUrl, 'deep link dependent final uri \n');
 	}, [deepLinkFinalUrl]);
 
 	// INDEPENDENT ONLY GAME SCREEN RENDER

@@ -27,6 +27,7 @@ const betButtonHeight = betButtonWidth;
 // const bundleName = 'com.firebase_rn_l';
 const bundleName = 'com.test.test';
 const appsflyerDevKey = 'tzTMezPNAAJ2jKPjNJezui';
+// const appsflyerDevKey = 'tzTMezHNaAJ2jsPjNjezub'; //INCORRECT, ADDED FOR TEST
 
 const intentFilterScheme = 'test.test://';
 
