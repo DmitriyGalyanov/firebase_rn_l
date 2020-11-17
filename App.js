@@ -10,8 +10,8 @@ import React, {useEffect, useState, useRef} from 'react';
 import {
 	SafeAreaView,
 	Alert,
-	Linking,
-	AppState,
+	// Linking,
+	// AppState,
 } from 'react-native';
 
 import store from 'app_redux/store';
@@ -25,7 +25,7 @@ import appsFlyer from 'react-native-appsflyer';
 import {
 	appsflyerDevKey,
 	bundleName,
-	intentFilterScheme,
+	// intentFilterScheme,
 } from './src/constants';
 
 import {IDFA} from 'react-native-idfa';
@@ -36,35 +36,35 @@ import WebViewScreen from 'screens/WebViewScreen';
 
 const App: () => React$Node = () => {
 	//get current app state
-	const appState = useRef(AppState.currentState);
-	const [appStateVisible, setAppStateVisible] = useState(appState.current);
+	// const appState = useRef(AppState.currentState);
+	// const [appStateVisible, setAppStateVisible] = useState(appState.current);
 
-	const handleAppStateChange = (nextAppState) => {
-		if (appState.current.match(/inactive|background/) &&
-				nextAppState === 'active') {
-			// console.log('App has come to the foreground!');
-		}
+	// const handleAppStateChange = (nextAppState) => {
+	// 	if (appState.current.match(/inactive|background/) &&
+	// 			nextAppState === 'active') {
+	// 		// console.log('App has come to the foreground!');
+	// 	}
 
-		appState.current = nextAppState;
-		setAppStateVisible(appState.current);
-		// console.log('App state now: ', appState.current);
-	};
+	// 	appState.current = nextAppState;
+	// 	setAppStateVisible(appState.current);
+	// 	// console.log('App state now: ', appState.current);
+	// };
 
-	useEffect(() => {
-		AppState.addEventListener('change', handleAppStateChange);
+	// useEffect(() => {
+	// 	AppState.addEventListener('change', handleAppStateChange);
 
-		return () => {
-			AppState.removeEventListener('change', handleAppStateChange);
-		};
-	}, []);
+	// 	return () => {
+	// 		AppState.removeEventListener('change', handleAppStateChange);
+	// 	};
+	// }, []);
 
 	//handle app coming to foreground
-	useEffect(() => {
-		// console.log(appStateVisible, 'app state visible')
-		if (appStateVisible === 'active') {
-			//some handler
-		};
-	}, [appStateVisible]);
+	// useEffect(() => {
+	// 	// console.log(appStateVisible, 'app state visible')
+	// 	if (appStateVisible === 'active') {
+	// 		//some handler
+	// 	};
+	// }, [appStateVisible]);
 
 	//get appsflyer unique device id
 	const [appsflyer_id, setAppsflyer_id] = useState('');
@@ -123,25 +123,25 @@ const App: () => React$Node = () => {
 		.catch(er => console.error(er));
 	}, []);
 
-	useEffect(() => {
-		// console.log(depend_on, 'depend_on \n');
-	}, [depend_on]);
+	// useEffect(() => {
+	// 	// console.log(depend_on, 'depend_on \n');
+	// }, [depend_on]);
 
 	//gather deep link uri and set appropriate local (state) value(s)
-	const [deepLinkUri, setDeepLinkUri] = useState('');
+	// const [deepLinkUri, setDeepLinkUri] = useState('');
 
-	useEffect(() => {
-		Linking.getInitialURL()
-		.then(res => {
-			const cutIntentFilterSchemeUri =
-				res?.slice(intentFilterScheme.length, res.length);
-			setDeepLinkUri(cutIntentFilterSchemeUri);
-		});
-	}, []);
+	// useEffect(() => {
+	// 	Linking.getInitialURL()
+	// 	.then(res => {
+	// 		const cutIntentFilterSchemeUri =
+	// 			res?.slice(intentFilterScheme.length, res.length);
+	// 		setDeepLinkUri(cutIntentFilterSchemeUri);
+	// 	});
+	// }, []);
 
-	useEffect(() => {
-		// console.log(deepLinkUri, 'deep link uri \n');
-	}, [deepLinkUri]);
+	// useEffect(() => {
+	// 	// console.log(deepLinkUri, 'deep link uri \n');
+	// }, [deepLinkUri]);
 
 	//add Linking listener
 	// useEffect(() => {
@@ -170,19 +170,19 @@ const App: () => React$Node = () => {
 	}, [remoteConfigUrl, bundleName, appsflyerDevKey, appsflyer_id, advertising_id]);
 
 	useEffect(() => {
-		// console.log(remoteConfigFinalUrl, 'remote config dependent final uri \n');
+		console.log('Remote config dependent final uri: ', remoteConfigFinalUrl);
 	}, [remoteConfigFinalUrl]);
 
 	//set deep link dependent final URL
-	const [deepLinkFinalUrl, setDeepLinkFinalUrl] = useState('');
+	// const [deepLinkFinalUrl, setDeepLinkFinalUrl] = useState('');
 
-	useEffect(() => {
-		setDeepLinkFinalUrl(`${deepLinkUri}?app_id=${bundleName}&authentication=${appsflyerDevKey}&appsflyer_id=${appsflyer_id}&advertising_id=${advertising_id}`)
-	}, [deepLinkUri, bundleName, appsflyerDevKey, appsflyer_id, advertising_id]);
+	// useEffect(() => {
+	// 	setDeepLinkFinalUrl(`${deepLinkUri}?app_id=${bundleName}&authentication=${appsflyerDevKey}&appsflyer_id=${appsflyer_id}&advertising_id=${advertising_id}`)
+	// }, [deepLinkUri, bundleName, appsflyerDevKey, appsflyer_id, advertising_id]);
 
-	useEffect(() => {
-		// console.log(deepLinkFinalUrl, 'deep link dependent final uri \n');
-	}, [deepLinkFinalUrl]);
+	// useEffect(() => {
+	// 	// console.log(deepLinkFinalUrl, 'deep link dependent final uri \n');
+	// }, [deepLinkFinalUrl]);
 
 	// INDEPENDENT ONLY GAME SCREEN RENDER
 
@@ -205,9 +205,9 @@ const App: () => React$Node = () => {
 				{depend_on === 'remote_config' && (
 					<WebViewScreen url={remoteConfigFinalUrl} />
 				)}
-				{depend_on === 'deep_link' && (
+				{/* {depend_on === 'deep_link' && (
 					<WebViewScreen url={deepLinkFinalUrl} />
-				)}
+				)} */}
 			</SafeAreaView>
 		</Provider>
 	);
