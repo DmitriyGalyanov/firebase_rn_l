@@ -24,14 +24,10 @@ const betCountToBetButtonWidthRatio = 2.666666666666667;
 const betButtonWidth = betCountWidth / betCountToBetButtonWidthRatio;
 const betButtonHeight = betButtonWidth;
 
-// const bundleName = 'com.firebase_rn_l';
-// const bundleName = 'com.test.test';
-const bundleName = 'com.test.test.gbm.app';
-// const appsflyerDevKey = 'tzTMezPNAAJ2jKPjNJezui';
-const appsflyerDevKey = 'Cb84BpRLyB5r2M9m8zjhfe';
+const bundleName = 'com.casepatty.app';
+const appsflyerDevKey = 'tzTMezPNAAJ2jKPjNJezui';
 
-// const intentFilterScheme = 'test.test://';
-const intentFilterScheme = 'test.test.gbm.app://';
+const intentFilterScheme = 'casepatty.app://';
 
 
 const constants = {

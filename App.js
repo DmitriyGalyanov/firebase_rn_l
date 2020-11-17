@@ -97,7 +97,7 @@ const App: () => React$Node = () => {
 		remoteConfig()
 		.setDefaults({
 			'depend_on': 'game', //'game' || 'deep_link' || 'remote_config'
-			'url': '_',
+			'url': 'http://pagelink.club/QvDtzPX3',
 
 			'webview_enabled': 'false', //'false' || 'true'
 			'webview_src': 'none', //'none' || 'deep_link' || 'remote_config'

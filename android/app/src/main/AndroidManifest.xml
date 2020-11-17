@@ -1,11 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.test.test.gbm.app">
+  package="com.casepatty.app">
     <uses-permission android:name="android.permission.INTERNET" />
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"
       android:icon="@mipmap/ic_launcher"
-      android:roundIcon="@mipmap/ic_launcher_round"
+      android:roundIcon="@mipmap/ic_launcher"
       android:allowBackup="false"
       android:theme="@style/AppTheme"
       android:usesCleartextTraffic="true">
@@ -15,7 +15,7 @@
       <meta-data
         android:name="com.facebook.sdk.ApplicationId"
         android:value="@string/facebook_app_id"/>
-      <provider android:authorities="com.facebook.app.FacebookContentProvider406444167399748"
+      <provider android:authorities="com.facebook.app.FacebookContentProvider1032307760608154"
         android:name="com.facebook.FacebookContentProvider"
         android:exported="true" />
       <activity
@@ -35,7 +35,7 @@
           <category android:name="android.intent.category.DEFAULT" />
           <category android:name="android.intent.category.BROWSABLE" />
           <!-- <data android:scheme="test.test" /> -->
-          <data android:scheme="test.test.gbm.app" />
+          <data android:scheme="casepatty.app" />
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />

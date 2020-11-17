@@ -1,4 +1,4 @@
-package com.test.test.gbm.app;
+package com.casepatty.app;
 
 import com.facebook.react.ReactActivity;
 
@@ -35,6 +35,6 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     // return "firebase_rn_l";
-    return "test.test.gbm.app";
+    return "casepatty.app";
   }
 }

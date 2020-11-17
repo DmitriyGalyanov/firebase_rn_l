@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">test.test.gbm.app</string>
-    <string name="facebook_app_id">406444167399748</string>
+    <!-- <string name="app_name">test.test.gbm.app</string> -->
+    <string name="app_name">Fruity Party — Magical Transformation</string>
+    <string name="facebook_app_id">1032307760608154</string>
 </resources>
