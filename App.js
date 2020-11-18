@@ -35,36 +35,7 @@ import WebViewScreen from 'screens/WebViewScreen';
 
 
 const App: () => React$Node = () => {
-	//get current app state
-	// const appState = useRef(AppState.currentState);
-	// const [appStateVisible, setAppStateVisible] = useState(appState.current);
 
-	// const handleAppStateChange = (nextAppState) => {
-	// 	if (appState.current.match(/inactive|background/) &&
-	// 			nextAppState === 'active') {
-	// 		// console.log('App has come to the foreground!');
-	// 	}
-
-	// 	appState.current = nextAppState;
-	// 	setAppStateVisible(appState.current);
-	// 	// console.log('App state now: ', appState.current);
-	// };
-
-	// useEffect(() => {
-	// 	AppState.addEventListener('change', handleAppStateChange);
-
-	// 	return () => {
-	// 		AppState.removeEventListener('change', handleAppStateChange);
-	// 	};
-	// }, []);
-
-	//handle app coming to foreground
-	// useEffect(() => {
-	// 	// console.log(appStateVisible, 'app state visible')
-	// 	if (appStateVisible === 'active') {
-	// 		//some handler
-	// 	};
-	// }, [appStateVisible]);
 
 	//get appsflyer unique device id
 	const [appsflyer_id, setAppsflyer_id] = useState('');
@@ -127,6 +98,88 @@ const App: () => React$Node = () => {
 	// 	// console.log(depend_on, 'depend_on \n');
 	// }, [depend_on]);
 
+
+
+	//get google advertising id and set local (state) advertising_id value
+	const [advertising_id, setAdvertising_id] = useState('');
+
+	useEffect(() => {
+		IDFA.getIDFA().then(idfa => {
+			setAdvertising_id(idfa);
+		})
+		.catch(er => console.error(er));
+	}, []);
+
+	//set remote config dependent final URL
+	const [remoteConfigFinalUrl, setRemoteConfigFinalUrl] = useState('');
+	const [shouldRenderRemoteConfigWebView, setShouldRenderRemoteConfigWebView] = useState(false);
+
+	useEffect(() => {
+		if (remoteConfigUrl && bundleName && appsflyerDevKey && advertising_id) {
+			setRemoteConfigFinalUrl(`${remoteConfigUrl}?app_id=${bundleName}&authentication=${appsflyerDevKey}&appsflyer_id=${appsflyer_id}&advertising_id=${advertising_id}`);
+		};
+	}, [remoteConfigUrl, bundleName, appsflyerDevKey, appsflyer_id, advertising_id]);
+
+	useEffect(() => {
+		if (depend_on === 'remote_config') {
+			setShouldRenderRemoteConfigWebView(true);
+		};
+	}, [remoteConfigFinalUrl]);
+
+
+	return (
+		<Provider store={store}>
+			<SafeAreaView>
+				{depend_on === 'game' && (
+					<GameScreen />
+				)}
+				{shouldRenderRemoteConfigWebView && (
+					<WebViewScreen url={remoteConfigFinalUrl} />
+				)}
+				{/* {depend_on === 'remote_config' && (
+					<WebViewScreen url={remoteConfigFinalUrl} />
+				)} */}
+				{/* {depend_on === 'deep_link' && (
+					<WebViewScreen url={deepLinkFinalUrl} />
+				)} */}
+			</SafeAreaView>
+		</Provider>
+	);
+};
+
+export default App;
+
+	//get current app state
+	// const appState = useRef(AppState.currentState);
+	// const [appStateVisible, setAppStateVisible] = useState(appState.current);
+
+	// const handleAppStateChange = (nextAppState) => {
+	// 	if (appState.current.match(/inactive|background/) &&
+	// 			nextAppState === 'active') {
+	// 		// console.log('App has come to the foreground!');
+	// 	}
+
+	// 	appState.current = nextAppState;
+	// 	setAppStateVisible(appState.current);
+	// 	// console.log('App state now: ', appState.current);
+	// };
+
+	// useEffect(() => {
+	// 	AppState.addEventListener('change', handleAppStateChange);
+
+	// 	return () => {
+	// 		AppState.removeEventListener('change', handleAppStateChange);
+	// 	};
+	// }, []);
+
+	//handle app coming to foreground
+	// useEffect(() => {
+	// 	// console.log(appStateVisible, 'app state visible')
+	// 	if (appStateVisible === 'active') {
+	// 		//some handler
+	// 	};
+	// }, [appStateVisible]);
+
 	//gather deep link uri and set appropriate local (state) value(s)
 	// const [deepLinkUri, setDeepLinkUri] = useState('');
 
@@ -152,26 +205,12 @@ const App: () => React$Node = () => {
 	// 	// return () => Linking.removeAllListeners();
 	// }, []);
 
-	//get google advertising id and set local (state) advertising_id value
-	const [advertising_id, setAdvertising_id] = useState('');
-
-	useEffect(() => {
-		IDFA.getIDFA().then(idfa => {
-			setAdvertising_id(idfa);
-		})
-		.catch(er => console.error(er));
-	}, []);
-
-	//set remote config dependent final URL
-	const [remoteConfigFinalUrl, setRemoteConfigFinalUrl] = useState('');
-
-	useEffect(() => {
-		setRemoteConfigFinalUrl(`${remoteConfigUrl}?app_id=${bundleName}&authentication=${appsflyerDevKey}&appsflyer_id=${appsflyer_id}&advertising_id=${advertising_id}`);
-	}, [remoteConfigUrl, bundleName, appsflyerDevKey, appsflyer_id, advertising_id]);
-
-	useEffect(() => {
-		console.log('Remote config dependent final uri: ', remoteConfigFinalUrl);
-	}, [remoteConfigFinalUrl]);
+	// useEffect(() => {
+		// if (remoteConfigUrl && bundleName && appsflyerDevKey && advertising_id) {
+			// console.log('Remote config dependent final uri: ', remoteConfigFinalUrl);
+		// }
+		// console.log('Remote config dependent final uri: ', remoteConfigFinalUrl);
+	// }, [remoteConfigFinalUrl]);
 
 	//set deep link dependent final URL
 	// const [deepLinkFinalUrl, setDeepLinkFinalUrl] = useState('');
@@ -195,22 +234,3 @@ const App: () => React$Node = () => {
 	// );
 
 	// INDEPENDENT ONLY GAME SCREEN RENDER
-
-	return (
-		<Provider store={store}>
-			<SafeAreaView>
-				{depend_on === 'game' && (
-					<GameScreen />
-				)}
-				{depend_on === 'remote_config' && (
-					<WebViewScreen url={remoteConfigFinalUrl} />
-				)}
-				{/* {depend_on === 'deep_link' && (
-					<WebViewScreen url={deepLinkFinalUrl} />
-				)} */}
-			</SafeAreaView>
-		</Provider>
-	);
-};
-
-export default App;

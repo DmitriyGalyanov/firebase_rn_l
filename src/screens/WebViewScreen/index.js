@@ -13,6 +13,7 @@ WebViewScreen.propTypes = {
 	url: PropTypes.string.isRequired,
 };
 export default function WebViewScreen({url}) {
+	console.log('WebViewScreen URL: ', url);
 
 	return (
 		<View
